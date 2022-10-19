@@ -29,8 +29,12 @@ export class WebComponent extends HTMLElement {
         const cssModule = await import(this.#styleUrl, {
             assert: { type: 'css' }
         });
-        console.log(cssModule);
-        this._shadowRoot.adoptedStyleSheets = [cssModule.default];
+        if(this.#styleUrl){
+            try{
+                console.log(cssModule);
+                this._shadowRoot.adoptedStyleSheets = [cssModule.default];
+            }catch{}
+        }
         //set content
         let content = await fetch(this.#templateUrl);
         this._shadowRoot.append(await content.text());
