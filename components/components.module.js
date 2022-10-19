@@ -1,3 +1,3 @@
-import { MyApp, tagName as MyAppTagName } from "./app-component/app.component.js";
+import { MyApp, selector as MyAppSelector } from "./app-component/app.component.js";
 
-customElements.define(MyAppTagName, MyApp);
+customElements.define(MyAppSelector, MyApp);

@@ -1,7 +1,12 @@
 export class WebComponent extends HTMLElement {
-    /** @type {ShadowRoot} */
-    #shadowRoot;
+    /** 
+     * @type {ShadowRoot} 
+     * @protected
+     */
+    _shadowRoot;
+    /** @type {string} */
     #templateUrl;
+    /** @type {string} */
     #styleUrl;
     /** 
      * @param {string} templateUrl 
@@ -18,17 +23,17 @@ export class WebComponent extends HTMLElement {
      * It should run any required rendering.
      */
     async connectedCallback() {
-        this.#shadowRoot = this.attachShadow({ mode: 'closed' });
+        this._shadowRoot = this.attachShadow({ mode: 'closed' });
         //set style
         // @ts-ignore
         const cssModule = await import(this.#styleUrl, {
             assert: { type: 'css' }
         });
         console.log(cssModule);
-        this.#shadowRoot.adoptedStyleSheets = [cssModule.default];
+        this._shadowRoot.adoptedStyleSheets = [cssModule.default];
         //set content
         let content = await fetch(this.#templateUrl);
-        this.#shadowRoot.append(await content.text());
+        this._shadowRoot.append(await content.text());
     }
 
     /**
