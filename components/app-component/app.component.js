@@ -1,7 +1,7 @@
 import { WebComponent } from '../web.component.js';
 
 const templateUrl = "components/app-component/app.component.html";
-const styleUrl = "components/app-component/app.component.css";
+const styleUrl = "./app-component/app.component.css";
 export const selector = "my-app";
 export class MyApp extends WebComponent {
    constructor(){
