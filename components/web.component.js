@@ -25,13 +25,12 @@ export class WebComponent extends HTMLElement {
     async connectedCallback() {
         this._shadowRoot = this.attachShadow({ mode: 'closed' });
         //set style
-        // @ts-ignore
-        const cssModule = await import(this.#styleUrl, {
-            assert: { type: 'css' }
-        });
         if(this.#styleUrl){
             try{
-                console.log(cssModule);
+                // @ts-ignore
+                const cssModule = await import(this.#styleUrl, {
+                    assert: { type: 'css' }
+                });
                 this._shadowRoot.adoptedStyleSheets = [cssModule.default];
             }catch{}
         }
