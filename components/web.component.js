@@ -36,7 +36,8 @@ export class WebComponent extends HTMLElement {
         }
         //set content
         let content = await fetch(this.#templateUrl);
-        this._shadowRoot.append(await content.text());
+        //need use innerHTML so content is not interpreted as text
+        this._shadowRoot.innerHTML = await content.text();
     }
 
     /**

@@ -3,14 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Simple Site for testing webcomponents.">
+        <meta name="description" content="Simple PWA with WebComponents.">
 
         <title>TestApp</title>
         
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#CFF3B5"/>
+ 
+        <link rel="apple-touch-icon" href="assets/152.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">  
+        <meta name="apple-mobile-web-app-status-bar-style" content="#CFF3B5"> 
+        <meta name="apple-mobile-web-app-title" content="Hello World"> 
+
+        <meta name="msapplication-TileImage" content="/assets/144png">  
+        <meta name="msapplication-TileColor" content="#CFF3B5">
     </head>
     <body>
         <my-app></my-app>
+
+        <script src="index.js"></script>
         <script type="module" src="./index.module.js"></script>
     </body>
 </html>
